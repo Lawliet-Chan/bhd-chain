@@ -1,0 +1,68 @@
+[package]
+name = "bhd-chain-runtime"
+version = "0.1.0"
+authors = ["Lawliet-Chan <Lawliet-Chan@github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "1.2.0", default-features = false, features = ["derive"] }
+
+aura = { version = "2.0.0-alpha.4", default-features = false, package = "pallet-aura", path = "../substrate/frame/aura" }
+balances = { version = "2.0.0-alpha.4", default-features = false, package = "pallet-balances", path = "../substrate/frame/balances" }
+frame-support = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/frame/support" }
+grandpa = { version = "2.0.0-alpha.4", default-features = false, package = "pallet-grandpa", path = "../substrate/frame/grandpa" }
+randomness-collective-flip = { version = "2.0.0-alpha.4", default-features = false, package = "pallet-randomness-collective-flip", path = "../substrate/frame/randomness-collective-flip" }
+sudo = { version = "2.0.0-alpha.4", default-features = false, package = "pallet-sudo", path = "../substrate/frame/sudo" }
+system = { version = "2.0.0-alpha.4", default-features = false, package = "frame-system", path = "../substrate/frame/system" }
+timestamp = { version = "2.0.0-alpha.4", default-features = false, package = "pallet-timestamp", path = "../substrate/frame/timestamp" }
+transaction-payment = { version = "2.0.0-alpha.4", default-features = false, package = "pallet-transaction-payment", path = "../substrate/frame/transaction-payment" }
+frame-executive = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/frame/executive" }
+serde = { version = "1.0.101", optional = true, features = ["derive"] }
+sp-api = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/api" }
+sp-block-builder = { path = "../substrate/primitives/block-builder", default-features = false, version = "2.0.0-alpha.4"}
+sp-consensus-aura = { version = "0.8.0-alpha.4", default-features = false, path = "../substrate/primitives/consensus/aura" }
+sp-core = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/core" }
+sp-inherents = { path = "../substrate/primitives/inherents", default-features = false, version = "2.0.0-alpha.4"}
+sp-io = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/io" }
+sp-offchain = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/offchain" }
+sp-runtime = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/runtime" }
+sp-session = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/session" }
+sp-std = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/std" }
+sp-transaction-pool = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/transaction-pool" }
+sp-version = { version = "2.0.0-alpha.4", default-features = false, path = "../substrate/primitives/version" }
+
+keccak-hasher = "0.15.2"
+poc = { path = "../poc" }
+
+[build-dependencies]
+wasm-builder-runner = { version = "1.0.4", package = "substrate-wasm-builder-runner", git = "https://github.com/paritytech/substrate.git", rev = "653c89f6bb" }
+
+[features]
+default = ["std"]
+std = [
+	"aura/std",
+	"balances/std",
+	"codec/std",
+	"frame-executive/std",
+	"frame-support/std",
+	"grandpa/std",
+	"serde",
+	"sp-api/std",
+	"sp-block-builder/std",
+	"sp-consensus-aura/std",
+	"sp-core/std",
+	"sp-inherents/std",
+	"sp-io/std",
+	"sp-offchain/std",
+	"sp-runtime/std",
+	"sp-session/std",
+	"sp-std/std",
+	"sp-transaction-pool/std",
+	"sp-version/std",
+	"sudo/std",
+	"system/std",
+	"timestamp/std",
+	"transaction-payment/std",
+	]

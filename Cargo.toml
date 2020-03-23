@@ -1,0 +1,44 @@
+[package]
+name = "bhd-chain"
+version = "0.1.0"
+authors = ["Lawliet-Chan <Lawliet-Chan@github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "bhd-chain"
+path = "src/main.rs"
+
+[dependencies]
+futures = "0.3.1"
+log = "0.4.8"
+codec = { package = "parity-scale-codec", version = "1.0.0" }
+trie-root = "0.15.2"
+
+sc-cli = { version = "0.8.0-alpha.4", path = "substrate/client/cli" }
+sp-core = { version = "2.0.0-alpha.4", path = "substrate/primitives/core" }
+sc-executor = { version = "0.8.0-alpha.4", path = "substrate/client/executor" }
+sc-service = { version = "0.8.0-alpha.4", path = "substrate/client/service" }
+sp-inherents = { version = "2.0.0-alpha.4", path = "substrate/primitives/inherents" }
+sc-transaction-pool = { version = "2.0.0-alpha.4", path = "substrate/client/transaction-pool" }
+sp-transaction-pool = { version = "2.0.0-alpha.4", path = "substrate/primitives/transaction-pool" }
+sc-network = { version = "0.8.0-alpha.4", path = "substrate/client/network" }
+sc-consensus-aura = { version = "0.8.0-alpha.4", path = "substrate/client/consensus/aura" }
+sp-consensus-aura = { version = "0.8.0-alpha.4", path = "substrate/primitives/consensus/aura" }
+sp-consensus = { version = "0.8.0-alpha.4", path = "substrate/primitives/consensus/common" }
+grandpa = { version = "0.8.0-alpha.4", package = "sc-finality-grandpa", path = "substrate/client/finality-grandpa" }
+grandpa-primitives = { version = "2.0.0-alpha.4", package = "sp-finality-grandpa", path = "substrate/primitives/finality-grandpa" }
+sc-client = { version = "0.8.0-alpha.4", path = "substrate/client/" }
+sc-client-api = { version = "2.0.0-alpha.4", path = "substrate/client/api" }
+sp-runtime = { version = "2.0.0-alpha.4", path = "substrate/primitives/runtime" }
+sc-basic-authorship = { path = "substrate/client/basic-authorship", version = "0.8.0-alpha.4"}
+
+bhd-chain-runtime = { version = "0.1.0" ,path = "runtime" }
+
+
+
+
+[build-dependencies]
+vergen = "3.0.4"
+build-script-utils = { version = "2.0.0-alpha.4", package = "substrate-build-script-utils", path = "substrate/utils/build-script-utils" }

@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/ChenXinRan/rust/src/bhd-chain/target/release/build/typenum-6a17265204552488/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/ChenXinRan/rust/src/bhd-chain/target/release/build/typenum-6a17265204552488/out/op.rs
