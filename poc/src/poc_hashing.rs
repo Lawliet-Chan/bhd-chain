@@ -1,6 +1,6 @@
 use crate::shabal256::{shabal256_deadline_fast, shabal256_hash_fast};
 use core::mem::transmute;
-use core::u64;
+use core::{u64, u32};
 
 const SCOOP_SIZE: usize = 64;
 

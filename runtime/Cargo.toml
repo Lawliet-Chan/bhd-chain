@@ -71,5 +71,5 @@ std = [
     "safe-mix/std",
     "timestamp/std",
     "transaction-payment/std",
-    "poc/std",
+   # "poc/std",
 	]

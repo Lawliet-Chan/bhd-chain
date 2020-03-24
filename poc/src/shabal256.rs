@@ -1,4 +1,5 @@
 use core::slice::from_raw_parts;
+use core::u32;
 
 const A_INIT: [u32; 12] = [
     0x52F84552, 0xE54B7999, 0x2D8EE3EC, 0xB9645191, 0xE0078B86, 0xBB7C44C9, 0xD2B5C1CA, 0xB0D2EB8C,
