@@ -13,6 +13,7 @@ path = "src/main.rs"
 [dependencies]
 futures = "0.3.1"
 log = "0.4.8"
+structopt = "0.3.8"
 codec = { package = "parity-scale-codec", version = "1.0.0" }
 trie-root = "0.15.2"
 
@@ -37,6 +38,8 @@ sc-basic-authorship = { path = "substrate/client/basic-authorship", version = "0
 bhd-chain-runtime = { version = "0.1.0" ,path = "runtime" }
 
 
+[dev-dependencies]
+clear_on_drop = { version = "0.2.3", features = ["no_cc"] }	# https://github.com/paritytech/substrate/issues/4179
 
 
 [build-dependencies]

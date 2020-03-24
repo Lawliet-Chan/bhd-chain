@@ -246,6 +246,7 @@ name = "bhd-chain"
 version = "0.1.0"
 dependencies = [
  "bhd-chain-runtime 0.1.0",
+ "clear_on_drop 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "futures 0.3.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.4.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "parity-scale-codec 1.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -266,6 +267,7 @@ dependencies = [
  "sp-inherents 2.0.0-alpha.4",
  "sp-runtime 2.0.0-alpha.4",
  "sp-transaction-pool 2.0.0-alpha.4",
+ "structopt 0.3.12 (registry+https://github.com/rust-lang/crates.io-index)",
  "substrate-build-script-utils 2.0.0-alpha.4",
  "trie-root 0.15.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "vergen 3.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -278,7 +280,6 @@ dependencies = [
  "frame-executive 2.0.0-alpha.4",
  "frame-support 2.0.0-alpha.4",
  "frame-system 2.0.0-alpha.4",
- "keccak-hasher 0.15.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "pallet-aura 2.0.0-alpha.4",
  "pallet-balances 2.0.0-alpha.4",
  "pallet-grandpa 2.0.0-alpha.4",
@@ -288,6 +289,7 @@ dependencies = [
  "pallet-transaction-payment 2.0.0-alpha.4",
  "parity-scale-codec 1.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "poc 0.1.0",
+ "safe-mix 1.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 1.0.105 (registry+https://github.com/rust-lang/crates.io-index)",
  "sp-api 2.0.0-alpha.4",
  "sp-block-builder 2.0.0-alpha.4",
@@ -1701,16 +1703,6 @@ version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "keccak-hasher"
-version = "0.15.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-dependencies = [
- "hash-db 0.15.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "hash256-std-hasher 0.15.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "tiny-keccak 1.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
 name = "kernel32-sys"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2892,6 +2884,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "poc"
 version = "0.1.0"
+dependencies = [
+ "sp-io 2.0.0-alpha.4",
+]
 
 [[package]]
 name = "ppv-lite86"
@@ -4942,14 +4937,6 @@ dependencies = [
 
 [[package]]
 name = "tiny-keccak"
-version = "1.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-dependencies = [
- "crunchy 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "tiny-keccak"
 version = "2.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
@@ -5855,7 +5842,6 @@ dependencies = [
 "checksum jsonrpc-server-utils 14.0.5 (registry+https://github.com/rust-lang/crates.io-index)" = "95b7635e618a0edbbe0d2a2bbbc69874277c49383fcf6c3c0414491cfb517d22"
 "checksum jsonrpc-ws-server 14.0.6 (registry+https://github.com/rust-lang/crates.io-index)" = "b94e5773b2ae66e0e02c80775ce6bbba6f15d5bb47c14ec36a36fcf94f8df851"
 "checksum keccak 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "67c21572b4949434e4fc1e1978b99c5f77064153c59d998bf13ecd96fb5ecba7"
-"checksum keccak-hasher 0.15.2 (registry+https://github.com/rust-lang/crates.io-index)" = "3468207deea1359a0e921591ae9b4c928733d94eb9d6a2eeda994cfd59f42cf8"
 "checksum kernel32-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "7507624b29483431c0ba2d82aece8ca6cdba9382bff4ddd0f7490560c056098d"
 "checksum kv-log-macro 1.0.4 (registry+https://github.com/rust-lang/crates.io-index)" = "8c54d9f465d530a752e6ebdc217e081a7a614b48cb200f6f0aee21ba6bc9aabb"
 "checksum kvdb 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "cad096c6849b2ef027fabe35c4aed356d0e3d3f586d0a8361e5e17f1e50a7ce5"
@@ -6055,7 +6041,6 @@ dependencies = [
 "checksum threadpool 1.7.1 (registry+https://github.com/rust-lang/crates.io-index)" = "e2f0c90a5f3459330ac8bc0d2f879c693bb7a2f59689c1083fc4ef83834da865"
 "checksum time 0.1.42 (registry+https://github.com/rust-lang/crates.io-index)" = "db8dcfca086c1143c9270ac42a2bbd8a7ee477b78ac8e45b19abfb0cbede4b6f"
 "checksum tiny-bip39 0.7.2 (registry+https://github.com/rust-lang/crates.io-index)" = "e255ec4f7d4aaccbede17dffcfb2e71434d17f5c921d5a06823b8e58a2bcd468"
-"checksum tiny-keccak 1.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "1d8a021c69bb74a44ccedb824a046447e2c84a01df9e5c20779750acb38e11b2"
 "checksum tiny-keccak 2.0.1 (registry+https://github.com/rust-lang/crates.io-index)" = "2953ca5148619bc99695c1274cb54c5275bbb913c6adad87e72eaf8db9787f69"
 "checksum tokio 0.1.22 (registry+https://github.com/rust-lang/crates.io-index)" = "5a09c0b5bb588872ab2f09afa13ee6e9dac11e10a0ec9e8e3ba39a5a5d530af6"
 "checksum tokio 0.2.13 (registry+https://github.com/rust-lang/crates.io-index)" = "0fa5e81d6bc4e67fe889d5783bd2a128ab2e0cfa487e0be16b6a8d177b101616"
