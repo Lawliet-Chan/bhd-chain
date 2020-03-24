@@ -41,7 +41,7 @@ clear_on_drop = { version = "0.2.3", features = ["no_cc"] }	# https://github.com
 
 
 [build-dependencies]
-wasm-builder-runner = { version = "1.0.4", package = "substrate-wasm-builder-runner", git = "https://github.com/paritytech/substrate.git", rev = "653c89f6bb" }
+wasm-builder-runner = { version = "1.0.5", package = "substrate-wasm-builder-runner", path = "../substrate/utils/wasm-builder-runner" }
 
 [features]
 default = ["std"]

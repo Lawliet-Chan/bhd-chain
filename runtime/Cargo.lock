@@ -1795,7 +1795,6 @@ dependencies = [
 [[package]]
 name = "substrate-wasm-builder-runner"
 version = "1.0.5"
-source = "git+https://github.com/paritytech/substrate.git?rev=653c89f6bb#653c89f6bb4e069bdf2af8be97b7c6b01bc62921"
 
 [[package]]
 name = "subtle"
