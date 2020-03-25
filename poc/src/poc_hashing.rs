@@ -1,3 +1,5 @@
+#![cfg_attr(not(feature = "std"), no_std)]
+
 use crate::shabal256::{shabal256_deadline_fast, shabal256_hash_fast};
 use std::mem::transmute;
 use std::{u64, u32};
