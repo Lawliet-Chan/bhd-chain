@@ -6,7 +6,9 @@ use frame_support::{
 };
 use system::{ensure_signed};
 use sp_runtime::traits::SaturatedConversion;
-use poc::{poc_hashing::calculate_scoop, shabal256::shabal256_deadline_fast};
+// use poc::{poc_hashing::calculate_scoop, shabal256::shabal256_deadline_fast};
+
+use poc::poc::{calculate_scoop, shabal256_deadline_fast};
 
 pub trait Trait: system::Trait + timestamp::Trait {
     type Event: From<Event<Self>> + Into<<Self as system::Trait>::Event>;

@@ -93,7 +93,6 @@ checksum = "5024ee8015f02155eee35c711107ddd9a9bf3cb689cf2a9089c97e79b6e1ae83"
 name = "bhd-chain-runtime"
 version = "0.1.0"
 dependencies = [
- "clear_on_drop",
  "frame-executive",
  "frame-support",
  "frame-system",
@@ -1164,6 +1163,9 @@ checksum = "5894c618ce612a3fa23881b152b608bafb8c56cfc22f434a3ba3120b40f7b587"
 [[package]]
 name = "poc"
 version = "0.1.0"
+dependencies = [
+ "sp-runtime-interface",
+]
 
 [[package]]
 name = "ppv-lite86"

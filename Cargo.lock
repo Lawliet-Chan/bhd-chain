@@ -2884,6 +2884,9 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "poc"
 version = "0.1.0"
+dependencies = [
+ "sp-runtime-interface 2.0.0-alpha.4",
+]
 
 [[package]]
 name = "ppv-lite86"
