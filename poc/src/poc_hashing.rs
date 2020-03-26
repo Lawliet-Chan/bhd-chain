@@ -1,8 +1,7 @@
-#![cfg_attr(not(feature = "std"), no_std)]
 
 use crate::shabal256::{shabal256_deadline_fast, shabal256_hash_fast};
-use std::mem::transmute;
-use std::{u64, u32};
+use sp_std::mem::transmute;
+use core::{u64, u32};
 
 const SCOOP_SIZE: usize = 64;
 
@@ -13,7 +12,7 @@ pub fn calculate_scoop(height: u64, gensig: &[u8; 32]) -> u32 {
     data[..32].clone_from_slice(gensig);
     data[32..40].clone_from_slice(&height_bytes);
     data[40] = 0x80;
-    let data = unsafe { std::mem::transmute::<&[u8; 64], &[u32; 16]>(&data) };
+    let data = unsafe { sp_std::mem::transmute::<&[u8; 64], &[u32; 16]>(&data) };
 
     let new_gensig = &shabal256_hash_fast(&[], &data);
     (u32::from(new_gensig[30] & 0x0F) << 8) | u32::from(new_gensig[31])

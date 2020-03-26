@@ -1,7 +1,6 @@
-#![cfg_attr(not(feature = "std"), no_std)]
 
-use std::slice::from_raw_parts;
-use std::u32;
+use sp_std::slice::from_raw_parts;
+use core::u32;
 
 const A_INIT: [u32; 12] = [
     0x52F84552, 0xE54B7999, 0x2D8EE3EC, 0xB9645191, 0xE0078B86, 0xBB7C44C9, 0xD2B5C1CA, 0xB0D2EB8C,
@@ -26,7 +25,7 @@ pub fn shabal256_deadline_fast(data: &[u8], gensig: &[u8; 32]) -> u64 {
     let mut w_low = 1u32;
     let data_ptr = data.as_ptr() as *const u32;
     let data = unsafe { from_raw_parts(data_ptr, data.len() / 4) };
-    let gensig = unsafe { std::mem::transmute::<&[u8; 32], &[u32; 8]>(&gensig) };
+    let gensig = unsafe { sp_std::mem::transmute::<&[u8; 32], &[u32; 8]>(&gensig) };
     let mut term = [0u32; 8];
     term[0] = 0x80;
 
@@ -45,7 +44,7 @@ pub fn shabal256_deadline_fast(data: &[u8], gensig: &[u8; 32]) -> u64 {
         xor_w(&mut a, w_low, w_high);
         apply_p_dl(&mut a, &mut b, &c, &data[8..], &term);
     }
-    let b = unsafe { std::mem::transmute::<&[u32; 16], &[u64; 8]>(&b) };
+    let b = unsafe { sp_std::mem::transmute::<&[u32; 16], &[u64; 8]>(&b) };
     b[4]
 }
 
@@ -460,7 +459,7 @@ fn perm_dl(a: &mut [u32; 12], b: &mut [u32; 16], c: &[u32; 16], data_a: &[u32], 
 
 #[inline(always)]
 fn swap_bc(b: &mut [u32; 16], c: &mut [u32; 16]) {
-    std::mem::swap(b, c);
+    sp_std::mem::swap(b, c);
 }
 
 #[inline(always)]
@@ -506,7 +505,7 @@ mod test {
         // test message B
         let hash_b = unsafe {
             shabal256_hash_fast(
-                &std::mem::transmute::<[u32; 16], [u8; 64]>(TEST_B_M1),
+                &sp_std::mem::transmute::<[u32; 16], [u8; 64]>(TEST_B_M1),
                 &TEST_B_M2,
             )
         };

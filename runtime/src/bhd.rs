@@ -6,9 +6,8 @@ use frame_support::{
 };
 use system::{ensure_signed};
 use sp_runtime::traits::SaturatedConversion;
-// use poc::{poc_hashing::calculate_scoop, shabal256::shabal256_deadline_fast};
 
-use poc::poc::{calculate_scoop, shabal256_deadline_fast};
+use poc::{poc_hashing::calculate_scoop, shabal256::shabal256_deadline_fast};
 
 pub trait Trait: system::Trait + timestamp::Trait {
     type Event: From<Event<Self>> + Into<<Self as system::Trait>::Event>;
@@ -37,7 +36,7 @@ decl_module! {
         fn verify_deadline(origin, sig: [u8; 32], deadline: u64) -> DispatchResult {
             let miner = ensure_signed(origin)?;
             let height = <system::Module<T>>::block_number().saturated_into::<u64>();
-            let scoop_data = calculate_scoop(height, &sig).to_be_bytes().as_ref();
+            let scoop_data = calculate_scoop(height, &sig).to_be_bytes();
             let target = shabal256_deadline_fast(&scoop_data, &sig);
             let base_target = Self::base_target();
             let is_ok = deadline == target/base_target;
