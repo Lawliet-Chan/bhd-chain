@@ -12,7 +12,7 @@ fn main() -> sc_cli::Result<()> {
 		name: "Substrate Node",
 		commit: env!("VERGEN_SHA_SHORT"),
 		version: env!("CARGO_PKG_VERSION"),
-		executable_name: "node-template",
+		executable_name: "bhd-chain",
 		author: "Anonymous",
 		description: "Template Node",
 		support_url: "support.anonymous.an",
