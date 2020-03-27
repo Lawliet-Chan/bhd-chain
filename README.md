@@ -1,25 +1,19 @@
-# decengle-chain
+# Substrate &middot; [![GitHub license](https://img.shields.io/github/license/paritytech/substrate)](LICENSE) [![GitLab Status](https://gitlab.parity.io/parity/substrate/badges/master/pipeline.svg)](https://gitlab.parity.io/parity/substrate/pipelines) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](docs/CONTRIBUTING.adoc)
 
-## need
-nightly-2020-02-29  
-wasm32-unknown-unknown
+Substrate is a next-generation framework for blockchain innovation.
 
-## start
-Download the source code:  
-`git clone https://github.com/Lawliet-Chan/bhd-chain.git`  
-  
-Init Substrate submodule  
-`git submodule update --init`  
-  
-Init rustup toolchain and Build   
-`sh scripts/init.sh && cargo build --release`
+## Trying it out
 
-Start blockchain  
+Simply go to [substrate.dev](https://substrate.dev) and follow the [getting started](https://substrate.dev/docs/en/overview/getting-started/) instructions.
 
->./target/release/bhd-chain \
- --base-path /tmp/alice \
- --chain=local \
- --alice \
- --telemetry-url ws://telemetry.polkadot.io:1024 \
- --validator
- 
+## Contributions & Code of Conduct
+
+Please follow the contributions guidelines as outlined in [`docs/CONTRIBUTING.adoc`](docs/CONTRIBUTING.adoc). In all communications and contributions, this project follows the [Contributor Covenant Code of Conduct](docs/CODE_OF_CONDUCT.adoc).
+
+## Security
+
+The security policy and procedures can be found in [`docs/SECURITY.md`](docs/SECURITY.md).
+
+## License
+
+Substrate is [GPL 3.0 licensed](LICENSE).
