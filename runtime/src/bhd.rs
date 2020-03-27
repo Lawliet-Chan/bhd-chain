@@ -4,14 +4,14 @@ use frame_support::{
     decl_event, decl_module, decl_storage,
     dispatch::DispatchResult,
 };
-use system::{ensure_signed};
+use frame_system::{ensure_signed};
 use sp_runtime::traits::SaturatedConversion;
 use sp_std::vec::Vec;
 
 use poc::{poc_hashing::{calculate_scoop, find_best_deadline_rust}, nonce::noncegen_rust};
 
-pub trait Trait: system::Trait + timestamp::Trait {
-    type Event: From<Event<Self>> + Into<<Self as system::Trait>::Event>;
+pub trait Trait: frame_system::Trait + timestamp::Trait {
+    type Event: From<Event<Self>> + Into<<Self as frame_system::Trait>::Event>;
 }
 
 decl_storage! {
@@ -23,7 +23,7 @@ decl_storage! {
 decl_event! {
 pub enum Event<T>
     where
-    AccountId = <T as system::Trait>::AccountId
+    AccountId = <T as frame_system::Trait>::AccountId
     {
         VerifyDeadline(AccountId, bool),
     }
@@ -35,7 +35,7 @@ decl_module! {
 
         fn verify_deadline(origin, account_id: u64, sig: [u8; 32], nonce: u64, deadline: u64) -> DispatchResult {
             let miner = ensure_signed(origin)?;
-            let height = <system::Module<T>>::block_number().saturated_into::<u64>();
+            let height = <frame_system::Module<T>>::block_number().saturated_into::<u64>();
             let scoop_data = calculate_scoop(height, &sig) as u64;
 
             let mut cache = Vec::with_capacity(262144);
