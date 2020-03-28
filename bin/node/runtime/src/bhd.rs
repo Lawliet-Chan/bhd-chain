@@ -9,7 +9,7 @@ use frame_support::{
 use system::{ensure_signed};
 use sp_runtime::traits::SaturatedConversion;
 use sp_std::vec::Vec;
-use sp_std::prelude::vec;
+use sp_std::vec;
 
 use poc::{poc_hashing::{calculate_scoop, find_best_deadline_rust}, nonce::noncegen_rust};
 
