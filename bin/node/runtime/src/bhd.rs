@@ -40,8 +40,8 @@ decl_module! {
             let height = <system::Module<T>>::block_number().saturated_into::<u64>();
             let scoop_data = calculate_scoop(height, &sig) as u64;
 
-            let mut cache = Vec::with_capacity(262144);
-            noncegen_rust(cache.as_mut(), account_id, nonce, 1);
+            let mut cache = vec![0_u8; 262144];
+            noncegen_rust(&mut cache[..], account_id, nonce, 1);
             let mirror_scoop_data = Self::gen_mirror_scoop_data(scoop_data, cache);
 
             let (target, _) = find_best_deadline_rust(mirror_scoop_data.as_ref(), 1, &sig);
@@ -58,7 +58,7 @@ impl<T: Trait> Module<T> {
         let addr = 64 * scoop_data as usize;
         let mirror_scoop = 4095 - scoop_data as usize;
         let mirror_addr = 64 * mirror_scoop as usize;
-        let mut mirror_scoop_data = Vec::<u8>::with_capacity(64);
+        let mut mirror_scoop_data = vec![0_u8; 64];
         mirror_scoop_data[0..32].clone_from_slice(&cache[addr..addr + 32]);
         mirror_scoop_data[32..64].clone_from_slice(&cache[mirror_addr + 32..mirror_addr + 64]);
         mirror_scoop_data
